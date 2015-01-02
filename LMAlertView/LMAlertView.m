@@ -33,6 +33,8 @@
 @property (nonatomic, copy) NSString *cancelButtonTitle;
 @property (nonatomic, strong) NSMutableArray *otherButtonsTitles;
 
+@property (nonatomic, strong) LMAlertViewDismissWithIndexBlock dismissBlock;
+
 - (void)setupWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles;
 
 @end
@@ -529,6 +531,10 @@
 		if ([self.delegate respondsToSelector:@selector(alertView:didDismissWithButtonIndex:)]) {
 			[self.delegate alertView:(UIAlertView *)self didDismissWithButtonIndex:buttonIndex];
 		}
+        
+        if (self.dismissBlock) {
+            self.dismissBlock(self,buttonIndex);
+        }
 	};
 	
 	if (!animated) {
@@ -608,6 +614,11 @@
 - (bool)hasCancelButton
 {
 	return (self.cancelButtonIndex != -1);
+}
+
+#pragma mark - Set Completion Block
+- (void)setCompletionBlock:(LMAlertViewDismissWithIndexBlock)block{
+    self.dismissBlock = block;
 }
 
 #pragma mark UITableViewDataSource delegate methods

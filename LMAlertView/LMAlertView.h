@@ -45,6 +45,8 @@
 @property(nonatomic) BOOL buttonsShouldStack;
 @property(nonatomic) BOOL autoRotate;
 
+typedef void (^LMAlertViewDismissWithIndexBlock)(LMAlertView *alertView,NSInteger buttonIndex);
+
 - (id)initWithSize:(CGSize)size;
 - (id)initWithViewController:(UIViewController *)viewController;
 - (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
@@ -57,6 +59,8 @@
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;
 - (NSInteger)addButtonWithTitle:(NSString *)title;
 - (NSString *)buttonTitleAtIndex:(NSInteger)buttonIndex;
+
+- (void)setCompletionBlock:(LMAlertViewDismissWithIndexBlock)block;
 
 - (LMModalItemTableViewCell *)buttonCellForIndex:(NSInteger)buttonIndex;
 

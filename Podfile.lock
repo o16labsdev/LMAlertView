@@ -14,10 +14,15 @@ EXTERNAL SOURCES:
   LMFixedTextView:
     :git: https://github.com/lmcd/LMFixedTextView.git
 
-SPEC CHECKSUMS:
-  CAAnimationBlocks: b70f877c5b92734abef270152187d3287d84e8f8
-  EDStarRating: 6761f41fd040f1cde155e2885dddc96461620f67
-  LMFixedTextView: 794f1423096e30f88a856ef49a791af08e5c6efe
-  RBBAnimation: e7f31ed62f760f3caf120b5d943267bd9a8e1f64
+CHECKOUT OPTIONS:
+  LMFixedTextView:
+    :commit: 2915e66e42c7a459f31aab360663e2599059dcd2
+    :git: https://github.com/lmcd/LMFixedTextView.git
 
-COCOAPODS: 0.28.0
+SPEC CHECKSUMS:
+  CAAnimationBlocks: 981bfca79ac481f07957aa8357885e620637f926
+  EDStarRating: c7b87f9866be0ea29bb054964023b8eb3f18286c
+  LMFixedTextView: 794f1423096e30f88a856ef49a791af08e5c6efe
+  RBBAnimation: 243d73be1a526f1b51d266b182e4aa0cfe9cbf64
+
+COCOAPODS: 0.35.0
