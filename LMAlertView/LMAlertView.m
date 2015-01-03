@@ -141,6 +141,27 @@
     return self;
 }
 
+- (id)initWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION{
+    
+    self = [super init];
+    if (self) {
+        NSMutableArray *newOtherButtonTitles;
+        if (otherButtonTitles != nil) {
+            va_list args;
+            va_start(args, otherButtonTitles);
+            newOtherButtonTitles = [[NSMutableArray alloc] initWithObjects:otherButtonTitles, nil];
+            id obj;
+            while ((obj = va_arg(args, id)) != nil) {
+                [newOtherButtonTitles addObject:obj];
+            }
+            va_end(args);
+        }
+        
+        [self setupWithTitle:title message:message cancelButtonTitle:cancelButtonTitle otherButtonTitles:newOtherButtonTitles];
+    }
+    return self;
+}
+
 - (void)setupWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles;
 {
     _cancelButtonIndex = -1;

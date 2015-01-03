@@ -51,6 +51,8 @@ typedef void (^LMAlertViewDismissWithIndexBlock)(LMAlertView *alertView,NSIntege
 - (id)initWithViewController:(UIViewController *)viewController;
 - (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
+- (id)initWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
+
 - (void)setSize:(CGSize)size animated:(BOOL)animated;
 - (void)setSize:(CGSize)size;
 - (CGSize)size;
